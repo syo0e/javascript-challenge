@@ -1,40 +1,241 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/style.css" />
-    <title>Momentum App</title>
-  </head>
-  <body>
-    <h2 id="clock">00:00:00</h2>
-    <form class="hidden" id="login-form">
-      <input
-        required
-        maxlength="15"
-        type="text"
-        placeholder="What is your name?"
-      />
-      <input type="submit" value="Log In" />
-    </form>
-    <h1 class="hidden" id="greeting"></h1>
-    <form id="todo-form">
-      <input type="text" placeholder="Write a To Do and Press Enter" required />
-    </form>
-    <ul id="todo-list"></ul>
-    <div id="quote">
-      <span></span>
-      <span></span>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+        href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="style.css">
+    <title>To Do List 🐍</title>
+    <script defer src="app.js"></script>
+    <script defer src="time-calender.js"></script>
+    <script defer src="to-do.js"></script>
+    <script defer src="quote.js"></script>
+    <script defer src="weather.js"></script>
+    <script defer src="music.js"></script>
+</head>
+
+<body>
+    <div class="container__login">
+        <h1>Hello, What's Your Name?</h1>
+        <form id="login-form">
+            <div class="name">
+                <input required maxlength="15" type="text">
+                <button>
+                    <span class="material-symbols-outlined">
+                        arrow_right_alt
+                    </span>
+                </button>
+            </div>
+        </form>
     </div>
-    <div id="weather">
-      <span></span>
-      <span></span>
+
+    <div class="contents hidden">
+        <div class="container">
+            <div class="left">
+                <div class="item__time">
+                    <div class="time">
+                        <p>Time</p>
+                        <h1 id="clock">00:00:00</h1>
+                    </div>
+                </div>
+
+                <div class="item__calaneder">
+                    <div class='wrapper'>
+                        <div class="header">
+                            <div class="btn prevDay"></div>
+                            <h2 class='dateTitle'></h2>
+                            <div class="btn nextDay"></div>
+                        </div>
+    
+                        <div class="grid dateHead">
+                            <div>Sun</div>
+                            <div>Mon</div>
+                            <div>Tue</div>
+                            <div>Wed</div>
+                            <div>Thur</div>
+                            <div>Fri</div>
+                            <div>Sat</div>
+                        </div>
+    
+                        <div class="grid dateBoard"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="mid">
+                <div class="item__todo">
+                    <h1>Write your To Do</h1>
+                    <form id="todo-form">
+                        <div class="wrapper__todo">
+                            <input type="text" required>
+                            <button>
+                                <span class="material-symbols-outlined">
+                                    arrow_right_alt
+                                </span>
+                            </button>
+                        </div>
+                    </form>
+                    <h2>To Do</h2>
+                    <ul id="todo-list">
+                    </ul>
+
+                    <h2>Done</h2>
+                    <ul class="done-list">
+                    </ul>
+    
+                </div>
+            </div>
+            <div class="right">
+                <div class="item__quotes">
+                    <div class="container__quote">
+                        <div class="container__weather-greet">
+                            <span id="weather"></span>
+                            <span id="greeting""></span>
+                        </div>
+                        <div class="quote">
+                            <span id="quote"></span>
+                            <span id="author"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item__weather">
+    
+                </div>
+
+                <div class="item__audio">
+                    <div class="player">
+                        <div class="player__header">
+                            <div class="player__img player__img--absolute slider">
+                                <button class="player__button player__button--absolute--nw playlist">
+                                    <span class="material-symbols-outlined">
+                                        menu_open
+                                        </span>
+                                </button>
+                                <button class="player__button player__button--absolute--center play">
+                                    <span class="material-symbols-outlined btn__play">
+                                        play_circle
+                                    </span>
+                                    <span class="material-symbols-outlined btn__pause">
+                                        pause_circle
+                                    </span>
+                                </button>
+    
+                                <div class="slider__content">
+                                    <img class="img slider__img" src="https://cdnimg.melon.co.kr/cm2/album/images/104/13/088/10413088_20200406151024_500.jpg/melon/sharpen/0x1"
+                                    alt="cover">
+                                    <img class="img slider__img" src="https://cdnimg.melon.co.kr/cm2/album/images/103/68/053/10368053_20191223155246_500.jpg?ce9aaaa85e8cfe9e58f3b074ff8107ef"
+                                        alt="cover">
+                                    <img class="img slider__img" src="https://cdnimg.melon.co.kr/cm2/album/images/107/03/942/10703942_20210917110116_500.jpg?76c5f02b2bd2b748830841aa3c87e852/melon/sharpen/0x1"
+                                        alt="cover">
+                                    <img class="img slider__img" src="https://cdnimg.melon.co.kr/cm2/album/images/105/19/346/10519346_20201117151537_500.jpg?5f929b5eed8829e22e470cd733066b38/melon/optimize/90"
+                                        alt="cover">
+                                    <img class="img slider__img" src="https://image.bugsm.co.kr/album/images/500/201237/20123733.jpg"
+                                        alt="cover">
+                                </div>
+                            </div>
+    
+                            <div class="player__controls">
+                                <button class="player__button back">
+                                    <span class="material-symbols-outlined">
+                                        skip_previous
+                                        </span>
+                                </button>
+    
+                                <p class="player__context slider__context">
+                                    <strong class="slider__name"></strong>
+                                    <span class="player__title slider__title"></span>
+                                </p>
+    
+                                <button class="player__button next">
+                                    <span class="material-symbols-outlined">
+                                        skip_next
+                                    </span>
+                                </button>
+    
+                                <div class="progres">
+                                    <div class="progres__filled"></div>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <ul class="player__playlist list">
+                            <li class="player__song">
+                                <img class="player__img img" src="https://cdnimg.melon.co.kr/cm2/album/images/104/13/088/10413088_20200406151024_500.jpg/melon/sharpen/0x1"
+                                    alt="cover">
+                                <p class="player__context">
+                                    <b class="player__song-name">Oh My God</b>
+                                    <span class="flex">
+                                        <span class="player__title">IDLE</span>
+                                        <span class="player__song-time"></span>
+                                    </span>
+                                </p>
+                                <audio class="audio" src="music/omg.mp3"></audio>
+                            </li>
+
+                            <li class="player__song">
+                                <img class="player__img img" src="https://cdnimg.melon.co.kr/cm2/album/images/103/68/053/10368053_20191223155246_500.jpg?ce9aaaa85e8cfe9e58f3b074ff8107ef"
+                                    alt="cover">
+                                <p class="player__context">
+                                    <b class="player__song-name">Psyco</b>
+                                    <span class="flex">
+                                        <span class="player__title">Red velvet</span>
+                                        <span class="player__song-time"></span>
+                                    </span>
+                                </p>
+                                <audio class="audio" src="music/psyco.mp3"></audio>
+                            </li>
+    
+                            <li class="player__song">
+                                <img class="player__img img" src="https://cdnimg.melon.co.kr/cm2/album/images/107/03/942/10703942_20210917110116_500.jpg?76c5f02b2bd2b748830841aa3c87e852/melon/sharpen/0x1"
+                                    alt="cover">
+                                <p class="player__context">
+                                    <b class="player__song-name">Sticker</b>
+                                    <span class="flex">
+                                        <span class="player__title">NCT127</span>
+                                        <span class="player__song-time"></span>
+                                    </span>
+                                </p>
+                                <audio class="audio" src="music/sticker.mp3"></audio>
+                            </li>
+    
+                            <li class="player__song">
+                                <img class="player__img img" src="https://cdnimg.melon.co.kr/cm2/album/images/105/19/346/10519346_20201117151537_500.jpg?5f929b5eed8829e22e470cd733066b38/melon/optimize/90"
+                                    alt="cover">
+                                <p class="player__context">
+                                    <b class="player__song-name">Black Mamba</b>
+                                    <span class="flex">
+                                        <span class="player__title">Aespa</span>
+                                        <span class="player__song-time"></span>
+                                    </span>
+                                </p>
+                                <audio class="audio" src="music/balckmamba.mp3"></audio>
+                            </li>
+    
+                            <li class="player__song">
+                                <img class="player__img img" src="https://image.bugsm.co.kr/album/images/500/201237/20123733.jpg"
+                                    alt="cover">
+                                <p class="player__context ">
+                                    <b class="player__song-name">Move</b>
+                                    <span class="flex">
+                                        <span class="player__title">Taemin</span>
+                                        <span class="player__song-time"></span>
+                                    </span>
+                                </p>
+                                <audio class="audio" src="music/move.mp3"></audio>
+                            </li>
+                        </ul>
+    
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
-    <script src="js/greetings.js"></script>
-    <script src="js/clock.js"></script>
-    <script src="js/quotes.js"></script>
-    <script src="js/background.js"></script>
-    <script src="js/todo.js"></script>
-    <script src="js/weather.js"></script>
-  </body>
+
+
+</body>
+
 </html>
